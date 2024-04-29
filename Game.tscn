@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy2dw0svlyxhk"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_ora7r"]
+[ext_resource type="PackedScene" uid="uid://cuuxx58vcw0y0" path="res://Level.tscn" id="2_34cw1"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ora7r")
+
+[node name="Level" parent="." instance=ExtResource("2_34cw1")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="LivesLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[editable path="Level"]
