@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://qruckvcqby87"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0rd5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="AnimPlayer" type="CharacterBody2D"]
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l0rd5")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(584, 330)

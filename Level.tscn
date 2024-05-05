@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cuuxx58vcw0y0"]
-
-[node name="Level" type="Node"]
-
-[node name="Scenery" type="Node" parent="."]
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1152, 648)
