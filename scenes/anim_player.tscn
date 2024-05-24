@@ -1,25 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://qruckvcqby87"]
+[gd_scene load_steps=9 format=3 uid="uid://qruckvcqby87"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_l0rd5"]
+[ext_resource type="Texture2D" uid="uid://4a2cyvrgui1b" path="res://sprites/bob_right.png" id="1_ef6pk"]
+[ext_resource type="Script" path="res://scenes/anim_player.gd" id="1_v2aav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n1ny"]
+atlas = ExtResource("1_ef6pk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rsw3"]
+atlas = ExtResource("1_ef6pk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q31m"]
+atlas = ExtResource("1_ef6pk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn50e"]
+atlas = ExtResource("1_ef6pk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_psxx2"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"left",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n1ny")
 }, {
-"frames": [],
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rsw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q31m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn50e")
+}],
 "loop": true,
 "name": &"right",
-"speed": 5.0
+"speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7mhr"]
+size = Vector2(51, 90)
+
 [node name="AnimPlayer" type="CharacterBody2D"]
+script = ExtResource("1_v2aav")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_l0rd5")
+position = Vector2(465, 402)
+scale = Vector2(3.0625, 3.0625)
+sprite_frames = SubResource("SpriteFrames_psxx2")
 animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(467, 408)
+shape = SubResource("RectangleShape2D_a7mhr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(584, 330)

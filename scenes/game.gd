@@ -11,10 +11,13 @@ func _ready() -> void:
 	sceneLimit = $Level/SceneLimit
 	player = $Level/AnimPlayer
 	
-func updateLifes():
+func updateLives():
 	if lives > 0:
 		lives-=1
 		livesLabel.text = "Lives: " + str(lives)
+	else:
+		print("Jogador perdeu!")
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 		
 func _physics_process(delta: float) -> void:
 	if sceneLimit == null:

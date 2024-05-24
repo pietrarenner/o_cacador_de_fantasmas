@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy2dw0svlyxhk"]
+[gd_scene load_steps=7 format=3 uid="uid://cy2dw0svlyxhk"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3tbjf"]
+[ext_resource type="FontFile" uid="uid://b1ksooqdxql42" path="res://fonts/SuperPixel-m2L8j.ttf" id="2_l4568"]
 [ext_resource type="PackedScene" uid="uid://dx37w2kc10lgj" path="res://scenes/level.tscn" id="2_unyp8"]
-[ext_resource type="Script" path="res://scenes/anim_player.gd" id="3_nam3k"]
+[ext_resource type="Texture2D" uid="uid://6t8cmyswgy6c" path="res://sprites/platform.png" id="4_ra5n6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b3gh"]
+texture = ExtResource("4_ra5n6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_434cp"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/5 = SubResource("TileSetAtlasSource_0b3gh")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3tbjf")
@@ -10,16 +23,32 @@ script = ExtResource("1_3tbjf")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LivesLabel" type="Label" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 14.0
+offset_top = 619.0
+offset_right = 196.0
+offset_bottom = 650.0
+theme_override_fonts/font = ExtResource("2_l4568")
+theme_override_font_sizes/font_size = 25
+text = "Lives : 3"
+vertical_alignment = 1
+
+[node name="CollectiblesLabel" type="Label" parent="HUD"]
+offset_left = 855.0
+offset_top = 622.0
+offset_right = 1150.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("2_l4568")
+theme_override_font_sizes/font_size = 25
+text = "Collectibles :"
 
 [node name="Level" parent="." instance=ExtResource("2_unyp8")]
 
-[node name="AnimPlayer" parent="Level" index="0"]
-script = ExtResource("3_nam3k")
+[node name="TileMap" parent="Level" index="0"]
+tile_set = SubResource("TileSet_434cp")
+collision_animatable = true
 
-[node name="TileMap" type="TileMap" parent="Level"]
-format = 2
+[node name="CollisionShape2D" parent="Level/AnimPlayer" index="1"]
+position = Vector2(468.5, 406)
 
 [editable path="Level"]
 [editable path="Level/AnimPlayer"]
