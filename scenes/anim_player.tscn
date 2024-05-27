@@ -1,59 +1,54 @@
-[gd_scene load_steps=9 format=3 uid="uid://qruckvcqby87"]
+[gd_scene load_steps=8 format=3 uid="uid://cecub0woerqpc"]
 
 [ext_resource type="Texture2D" uid="uid://4a2cyvrgui1b" path="res://sprites/bob_right.png" id="1_ef6pk"]
-[ext_resource type="Script" path="res://scenes/anim_player.gd" id="1_v2aav"]
+[ext_resource type="Script" path="res://scenes/AnimPlayer.gd" id="1_hpwxt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8n1ny"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_10brp"]
 atlas = ExtResource("1_ef6pk")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1rsw3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb5d4"]
 atlas = ExtResource("1_ef6pk")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5q31m"]
-atlas = ExtResource("1_ef6pk")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yn50e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_07wkx"]
 atlas = ExtResource("1_ef6pk")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_psxx2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6oavx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8n1ny")
+"texture": SubResource("AtlasTexture_10brp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1rsw3")
+"texture": SubResource("AtlasTexture_tb5d4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5q31m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yn50e")
+"texture": SubResource("AtlasTexture_07wkx")
 }],
 "loop": true,
 "name": &"right",
-"speed": 10.0
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7mhr"]
-size = Vector2(51, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7mbb"]
+size = Vector2(16, 29)
 
 [node name="AnimPlayer" type="CharacterBody2D"]
-script = ExtResource("1_v2aav")
+position = Vector2(342, 209)
+script = ExtResource("1_hpwxt")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(465, 402)
-scale = Vector2(3.0625, 3.0625)
-sprite_frames = SubResource("SpriteFrames_psxx2")
+sprite_frames = SubResource("SpriteFrames_6oavx")
 animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(467, 408)
-shape = SubResource("RectangleShape2D_a7mhr")
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_h7mbb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(584, 330)
+position = Vector2(233, 116)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

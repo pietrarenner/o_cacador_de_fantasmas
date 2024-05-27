@@ -1,54 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy2dw0svlyxhk"]
+[gd_scene load_steps=7 format=3 uid="uid://bhsxw3yaf5gj2"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_3tbjf"]
-[ext_resource type="FontFile" uid="uid://b1ksooqdxql42" path="res://fonts/SuperPixel-m2L8j.ttf" id="2_l4568"]
-[ext_resource type="PackedScene" uid="uid://dx37w2kc10lgj" path="res://scenes/level.tscn" id="2_unyp8"]
-[ext_resource type="Texture2D" uid="uid://6t8cmyswgy6c" path="res://sprites/platform.png" id="4_ra5n6"]
+[ext_resource type="Script" path="res://scenes/Game.gd" id="1_c1p7h"]
+[ext_resource type="FontFile" uid="uid://b1ksooqdxql42" path="res://fonts/SuperPixel-m2L8j.ttf" id="2_611n1"]
+[ext_resource type="PackedScene" uid="uid://cecub0woerqpc" path="res://scenes/anim_player.tscn" id="2_pr061"]
+[ext_resource type="Texture2D" uid="uid://6t8cmyswgy6c" path="res://sprites/platform.png" id="3_jhher"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b3gh"]
-texture = ExtResource("4_ra5n6")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1t4pp"]
+resource_name = "flor"
+texture = ExtResource("3_jhher")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSet" id="TileSet_434cp"]
+[sub_resource type="TileSet" id="TileSet_5fd6u"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/5 = SubResource("TileSetAtlasSource_0b3gh")
+sources/0 = SubResource("TileSetAtlasSource_1t4pp")
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_3tbjf")
+script = ExtResource("1_c1p7h")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LivesLabel" type="Label" parent="HUD"]
-offset_left = 14.0
-offset_top = 619.0
-offset_right = 196.0
-offset_bottom = 650.0
-theme_override_fonts/font = ExtResource("2_l4568")
-theme_override_font_sizes/font_size = 25
-text = "Lives : 3"
-vertical_alignment = 1
+offset_left = 11.0
+offset_top = 588.0
+offset_right = 120.0
+offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("2_611n1")
+theme_override_font_sizes/font_size = 20
+text = "LIVES : "
 
 [node name="CollectiblesLabel" type="Label" parent="HUD"]
-offset_left = 855.0
-offset_top = 622.0
-offset_right = 1150.0
-offset_bottom = 648.0
-theme_override_fonts/font = ExtResource("2_l4568")
-theme_override_font_sizes/font_size = 25
-text = "Collectibles :"
+offset_left = 910.0
+offset_top = 597.0
+offset_right = 1121.0
+offset_bottom = 617.0
+theme_override_fonts/font = ExtResource("2_611n1")
+theme_override_font_sizes/font_size = 20
+text = "Collectibles : "
 
-[node name="Level" parent="." instance=ExtResource("2_unyp8")]
+[node name="Level" type="Node2D" parent="."]
 
-[node name="TileMap" parent="Level" index="0"]
-tile_set = SubResource("TileSet_434cp")
-collision_animatable = true
+[node name="AnimPlayer" parent="Level" instance=ExtResource("2_pr061")]
 
-[node name="CollisionShape2D" parent="Level/AnimPlayer" index="1"]
-position = Vector2(468.5, 406)
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource("TileSet_5fd6u")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0)
 
-[editable path="Level"]
 [editable path="Level/AnimPlayer"]
