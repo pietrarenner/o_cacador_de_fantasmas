@@ -1,28 +1,35 @@
 extends Node2D
 
-var lives := 3
+var lives := 5
 var count := 0
-#@onready var livesLabel := $HUD/LivesLabel
-#var player : CharacterBody2D
-#var sceneLimit : Marker2D
+var collectibles := 0
+@onready var livesLabel := $HUD/LivesLabel
+@onready var collectiblesLabel := $HUD/CollectiblesLabel
+var player : CharacterBody2D
+var sceneLimit : Marker2D
+@onready var hud : CanvasLayer = $HUD 
 #var currentScene = null
-#
-## Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	$HUD/LivesLabel.text = "Lives : " + str(lives)
-	$HUD/CollectiblesLabel.text = "Collectibles : " + str(lives)
+	RenderingServer.set_default_clear_color("#02041c")
+	sceneLimit = $Level/SceneLimit
+	player = $Level/AnimPlayer
+	#$HUD/LivesLabel.text = "Lives : " + str(lives)
+	#$HUD/CollectiblesLabel.text = "Collectibles : " + str(lives)
 	#sceneLimit = $Level/SceneLimit
 	#player = $Level/AnimPlayer
 	#
 func updateLives():
-	if lives > 0:
+	if lives > 1:
 		lives-=1
-		$HUD/LivesLabel.text = "Lives : " + str(lives)
-		$HUD/CollectiblesLabel.text = "Collectibles : " + str(lives)
-		#livesLabel.text = "Lives: " + str(lives)
-	#else:
-		#print("Jogador perdeu!")
-		#get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		hud.setLives(lives)
+	else:
+		print("Jogador perdeu!")
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		
+func updateCollectibles():
+	collectibles+=1
+	hud.setCollectibles(collectibles)
 		
 #func _physics_process(delta: float) -> void:
 	#if sceneLimit == null:
@@ -41,10 +48,9 @@ func updateLives():
 	#add_child(currentScene)
 	#sceneLimit = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	count+=1
-	if count==50:
-		updateLives()
-		count=0
-	pass
+func _physics_process(delta: float) -> void:
+	if sceneLimit == null:
+		player = $Level/AnimPlayer
+		sceneLimit = $Level/SceneLimit		
+		#print("sceneLimit: ", sceneLimit)
+		#print("player: ", player)

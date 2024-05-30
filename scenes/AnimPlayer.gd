@@ -1,16 +1,11 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed = 300.0
-@export var jump_speed := -1000.0
+@export var jump_speed := -700.0
 @export var gravity := 2500.0
 @onready var sprite = $PlayerSprite
-#@onready var jumpsound := $JumpSound
-#@onready var box := preload("res://objects/box.tscn"
-
-#signal jumped
-
-#func _ready() -> void:
-#	sprite = $PlayerSprite
+@onready var jumpsound := $JumpSound
 	
 func get_side_input():
 	velocity.x = 0
@@ -21,7 +16,7 @@ func get_side_input():
 		velocity.y = jump_speed
 		# Emitir o sinal "jumped"
 		# jumped.emit()
-		#get_tree().call_group("hud", "updateScore")
+		#get_tree().call_group("hud", "updateLives")
 		#jumpsound.play()
 		# Controle de volume (0 = padrão)
 		#AudioServer.set_bus_volume_db(2, 0)

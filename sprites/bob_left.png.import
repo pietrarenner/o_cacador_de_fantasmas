@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbx67oeejd1jf"
-path="res://.godot/imported/bob_right.png-117025cbee60acd0317a6e10e2d94105.ctex"
+uid="uid://b1lxqofrwv3sf"
+path="res://.godot/imported/bob_left.png-9d323531886368168aced0a86aaa69c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bob_right.png"
-dest_files=["res://.godot/imported/bob_right.png-117025cbee60acd0317a6e10e2d94105.ctex"]
+source_file="res://sprites/bob_left.png"
+dest_files=["res://.godot/imported/bob_left.png-9d323531886368168aced0a86aaa69c5.ctex"]
 
 [params]
 
