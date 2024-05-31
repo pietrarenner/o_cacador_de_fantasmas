@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cecub0woerqpc"]
+[gd_scene load_steps=16 format=3 uid="uid://cecub0woerqpc"]
 
 [ext_resource type="Texture2D" uid="uid://dbx67oeejd1jf" path="res://sprites/bob_right.png" id="1_ef6pk"]
 [ext_resource type="Script" path="res://scenes/AnimPlayer.gd" id="1_hpwxt"]
@@ -75,28 +75,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7mbb"]
-size = Vector2(34, 51.25)
+size = Vector2(18, 51.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xes35"]
+size = Vector2(37, 43)
 
 [node name="AnimPlayer" type="CharacterBody2D"]
-position = Vector2(323, 204)
 collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_hpwxt")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-137, 325)
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_6oavx")
 animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-136, 328)
 shape = SubResource("RectangleShape2D_h7mbb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_x3nou")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(230, 119)
+position = Vector2(562, 0)
 limit_left = 0
 limit_right = 1150
 drag_vertical_enabled = true
@@ -104,3 +105,23 @@ drag_left_margin = 1.0
 drag_right_margin = 1.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_xes35")
+debug_color = Color(0.968627, 0.160784, 0.152941, 0.419608)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(18, 0)
+target_position = Vector2(4, 0)
+collision_mask = 4
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-18, 0)
+target_position = Vector2(-4, 0)
+collision_mask = 4
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

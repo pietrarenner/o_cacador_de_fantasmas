@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhsxw3yaf5gj2"]
+[gd_scene load_steps=10 format=3 uid="uid://bhsxw3yaf5gj2"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_c1p7h"]
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="2_gvr13"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dlcj3kbyvav37" path="res://sprites/floor.png" id="4_qdicc"]
 [ext_resource type="PackedScene" uid="uid://cphngaxhhyh0f" path="res://scenes/simple_ghost.tscn" id="5_4otq2"]
 [ext_resource type="PackedScene" uid="uid://b7ddxjiw01vop" path="res://scenes/hit_box.tscn" id="6_ajm5h"]
+[ext_resource type="PackedScene" uid="uid://duspyo64j8jh7" path="res://scenes/boss_ghost.tscn" id="7_m6gqx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tggku"]
 resource_name = "floor"
@@ -50,7 +51,39 @@ text = "Collectibles : 0"
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="AnimPlayer" parent="Level" instance=ExtResource("2_pr061")]
+[node name="BossGhost" parent="Level" node_paths=PackedStringArray("target") instance=ExtResource("7_m6gqx")]
+position = Vector2(204, -252)
+target = NodePath("../AnimPlayer")
+
+[node name="SimpleGhost2" parent="Level" instance=ExtResource("5_4otq2")]
+position = Vector2(210, 377)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="SimpleGhost3" parent="Level" instance=ExtResource("5_4otq2")]
+position = Vector2(781, 119)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="SimpleGhost4" parent="Level" instance=ExtResource("5_4otq2")]
+position = Vector2(927, 119)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="SimpleGhost5" parent="Level" instance=ExtResource("5_4otq2")]
+position = Vector2(1107, 567)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="SimpleGhost6" parent="Level" instance=ExtResource("5_4otq2")]
+position = Vector2(40, -72)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="SimpleGhost" parent="Level" instance=ExtResource("5_4otq2")]
+position = Vector2(72, 377)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
 [node name="TileMap" type="TileMap" parent="Level"]
 position = Vector2(1, 0)
@@ -58,26 +91,12 @@ tile_set = SubResource("TileSet_5fd6u")
 format = 2
 layer_0/tile_data = PackedInt32Array(1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 1, 0, 1179680, 1, 0, 1179681, 1, 0, 1179682, 1, 0, 1179683, 1, 0, 1245184, 65537, 0, 1245185, 65537, 0, 1245186, 65537, 0, 1245187, 65537, 0, 1245188, 65537, 0, 1245189, 65537, 0, 1245190, 65537, 0, 1245191, 65537, 0, 1245192, 65537, 0, 1245193, 65537, 0, 1245194, 65537, 0, 1245195, 65537, 0, 1245196, 65537, 0, 1245197, 65537, 0, 1245198, 65537, 0, 1245199, 65537, 0, 1245201, 65537, 0, 1245202, 65537, 0, 1245203, 65537, 0, 1245204, 65537, 0, 1245205, 65537, 0, 1245206, 65537, 0, 1245207, 65537, 0, 1245208, 65537, 0, 1245209, 65537, 0, 1245210, 65537, 0, 1245211, 65537, 0, 1245212, 65537, 0, 1245213, 65537, 0, 1245214, 65537, 0, 1245215, 65537, 0, 1245216, 65537, 0, 1245217, 65537, 0, 1245218, 65537, 0, 1245219, 65537, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1245200, 65537, 0, 1310720, 65537, 0, 1310721, 65537, 0, 1310722, 65537, 0, 1310723, 65537, 0, 1310724, 65537, 0, 1310725, 65537, 0, 1310726, 65537, 0, 1310727, 65537, 0, 1310728, 65537, 0, 1310729, 65537, 0, 1310730, 65537, 0, 1310731, 65537, 0, 1310735, 65537, 0, 1310734, 65537, 0, 1310733, 65537, 0, 1310732, 65537, 0, 1310740, 65537, 0, 1310739, 65537, 0, 1310738, 65537, 0, 1310737, 65537, 0, 1310736, 65537, 0, 1310741, 65537, 0, 1310742, 65537, 0, 1310743, 65537, 0, 1310744, 65537, 0, 1310745, 65537, 0, 1310746, 65537, 0, 1310747, 65537, 0, 1310748, 65537, 0, 1310749, 65537, 0, 1310750, 65537, 0, 1310751, 65537, 0, 1310752, 65537, 0, 1310753, 65537, 0, 1310754, 65537, 0, 1310755, 65537, 0, 852004, 65537, 0, 917540, 65537, 0, 983076, 65537, 0, 1048612, 65537, 0, 1114148, 65537, 0, 786468, 65537, 0, 720932, 65537, 0, 655396, 65537, 0, 589860, 65537, 0, 524324, 65537, 0, 458788, 65537, 0, 393252, 65537, 0, 327716, 65537, 0, 262180, 65537, 0, 196644, 65537, 0, 131108, 65537, 0, 65572, 65537, 0, 36, 65537, 0, 65535, 65537, 0, 131071, 65537, 0, 196607, 65537, 0, 262143, 65537, 0, 327679, 65537, 0, 327678, 65537, 0, 393214, 65537, 0, 524286, 65537, 0, 589822, 65537, 0, 655358, 65537, 0, 720894, 65537, 0, 786430, 65537, 0, 851966, 65537, 0, 917502, 65537, 0, 983038, 65537, 0, 458751, 65537, 0, 524287, 65537, 0, 589823, 65537, 0, 655359, 65537, 0, 720895, 65537, 0, 786431, 65537, 0, 851967, 65537, 0, 917503, 65537, 0, 983039, 65537, 0, 1048575, 65537, 0, 1114111, 65537, 0, 1179647, 65537, 0, 1245183, 65537, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 983069, 1, 0, 851999, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 983061, 1, 0, 983060, 1, 0, 983059, 1, 0, 983058, 1, 0, 983057, 1, 0, 983056, 1, 0, 983055, 1, 0, 589858, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 655375, 1, 0, 655376, 1, 0, 458770, 1, 0, 458771, 1, 0, 262159, 1, 0, 262158, 1, 0, 262157, 1, 0, 262156, 1, 0, 262155, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 1, 0, 262170, 1, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 1, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 65545, 1, 0, 65544, 1, 0, 65543, 1, 0, 196612, 1, 0, 196611, 1, 0, 196610, 1, 0, 65539, 1, 0, 65570, 1, 0, 65571, 1, 0, 65569, 1, 0, -196582, 1, 0, -196583, 1, 0, -196584, 1, 0, -327660, 1, 0, -131068, 1, 0, -131069, 1, 0, -131070, 1, 0, -131071, 1, 0, -131072, 1, 0, -524288, 1, 0, -524287, 1, 0, -524286, 1, 0, -524285, 1, 0, -524284, 1, 0, -524283, 1, 0, -524282, 1, 0, -524281, 1, 0, -524280, 1, 0, -524279, 1, 0, -524278, 1, 0, -524277, 1, 0, -524276, 1, 0, -524275, 1, 0, -524274, 1, 0, -65507, 1, 0, -458735, 1, 0, -196574, 1, 0, -196573, 1, 0, -262109, 1, 0, 1179653, 1, 0, 1179654, 1, 0)
 
+[node name="AnimPlayer" parent="Level" instance=ExtResource("2_pr061")]
+position = Vector2(93, 545)
+metadata/_edit_group_ = true
+
 [node name="SceneLimit" type="Marker2D" parent="Level"]
 position = Vector2(1148, 578)
-
-[node name="SimpleGhost" parent="." instance=ExtResource("5_4otq2")]
-position = Vector2(72, 377)
-
-[node name="SimpleGhost2" parent="." instance=ExtResource("5_4otq2")]
-position = Vector2(210, 377)
-
-[node name="SimpleGhost3" parent="." instance=ExtResource("5_4otq2")]
-position = Vector2(781, 119)
-
-[node name="SimpleGhost4" parent="." instance=ExtResource("5_4otq2")]
-position = Vector2(927, 119)
-
-[node name="SimpleGhost5" parent="." instance=ExtResource("5_4otq2")]
-position = Vector2(1107, 567)
-
-[node name="SimpleGhost6" parent="." instance=ExtResource("5_4otq2")]
-position = Vector2(40, -72)
 
 [node name="HitBox" parent="." instance=ExtResource("6_ajm5h")]
 position = Vector2(276, 562)
