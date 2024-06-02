@@ -8,17 +8,15 @@ var collectibles := 0
 var player : CharacterBody2D
 var sceneLimit : Marker2D
 @onready var hud : CanvasLayer = $HUD 
+@onready var music := $Music
 #var currentScene = null
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color("#02041c")
 	sceneLimit = $Level/SceneLimit
 	player = $Level/AnimPlayer
-	#$HUD/LivesLabel.text = "Lives : " + str(lives)
-	#$HUD/CollectiblesLabel.text = "Collectibles : " + str(lives)
-	#sceneLimit = $Level/SceneLimit
-	#player = $Level/AnimPlayer
-	#
+	music.play()
+	
 func updateLives():
 	if lives > 1:
 		lives-=1

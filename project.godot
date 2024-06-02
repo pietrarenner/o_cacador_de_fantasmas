@@ -59,6 +59,7 @@ jump={
 2d_physics/layer_4="HitBox"
 2d_physics/layer_5="HurtBox"
 2d_physics/layer_6="Boss"
+2d_physics/layer_7="Fireball"
 
 [rendering]
 

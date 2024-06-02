@@ -18,12 +18,7 @@ func get_side_input():
 
 	if is_on_floor() and jump:		
 		velocity.y = jump_speed
-		# Emitir o sinal "jumped"
-		# jumped.emit()
-		#get_tree().call_group("hud", "updateLives")
-		#jumpsound.play()
-		# Controle de volume (0 = padrão)
-		#AudioServer.set_bus_volume_db(2, 0)
+		jumpsound.play()
 	if knockback_vector != Vector2.ZERO:
 		velocity = knockback_vector
 	else:

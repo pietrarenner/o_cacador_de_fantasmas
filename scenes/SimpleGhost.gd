@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var direction = Vector2.RIGHT
+var lives = 1
 @onready var edgeCheckLeft := $EdgeCheckLeft
 @onready var edgeCheckRight := $EdgeCheckRight
 @onready var sprite := $SimpleGhostSprite

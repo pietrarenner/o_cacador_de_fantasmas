@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_c1p7h"]
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="2_gvr13"]
 [ext_resource type="PackedScene" uid="uid://cecub0woerqpc" path="res://scenes/anim_player.tscn" id="2_pr061"]
+[ext_resource type="AudioStream" uid="uid://crjat5b2nmm24" path="res://SFX/backgroundsound.mp3" id="2_qvhxs"]
 [ext_resource type="PackedScene" uid="uid://cphngaxhhyh0f" path="res://scenes/simple_ghost.tscn" id="5_4otq2"]
-[ext_resource type="PackedScene" uid="uid://b7ddxjiw01vop" path="res://scenes/hit_box.tscn" id="6_ajm5h"]
 [ext_resource type="Texture2D" uid="uid://bu2m4awja8egh" path="res://sprites/tileset1.png" id="7_hh77q"]
 [ext_resource type="PackedScene" uid="uid://duspyo64j8jh7" path="res://scenes/boss_ghost.tscn" id="7_m6gqx"]
 
@@ -44,6 +44,10 @@ sources/3 = SubResource("TileSetAtlasSource_gnivy")
 scale = Vector2(2, 2)
 script = ExtResource("1_c1p7h")
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qvhxs")
+volume_db = -8.0
+
 [node name="HUD" type="CanvasLayer" parent="." groups=["hud"]]
 script = ExtResource("2_gvr13")
 
@@ -66,7 +70,7 @@ text = "Collectibles : 0"
 [node name="Level" type="Node2D" parent="."]
 
 [node name="BossGhost" parent="Level" node_paths=PackedStringArray("target") instance=ExtResource("7_m6gqx")]
-position = Vector2(136, -426.5)
+position = Vector2(251.5, 244.5)
 target = NodePath("../AnimPlayer")
 
 [node name="SimpleGhost2" parent="Level" instance=ExtResource("5_4otq2")]
@@ -103,11 +107,5 @@ layer_0/tile_data = PackedInt32Array(2424843, 65539, 0, 2424844, 65539, 0, 24248
 [node name="AnimPlayer" parent="Level" instance=ExtResource("2_pr061")]
 position = Vector2(93, 259.5)
 metadata/_edit_group_ = true
-
-[node name="SceneLimit" type="Marker2D" parent="Level"]
-position = Vector2(1152, -285.5)
-
-[node name="HitBox" parent="." instance=ExtResource("6_ajm5h")]
-position = Vector2(276, 276.5)
 
 [editable path="Level/AnimPlayer"]
