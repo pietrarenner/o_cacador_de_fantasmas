@@ -75,34 +75,36 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7mbb"]
-size = Vector2(18, 51.25)
+size = Vector2(18, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xes35"]
-size = Vector2(37, 43)
+size = Vector2(31.5, 37)
 
 [node name="AnimPlayer" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 13
+collision_mask = 9
 script = ExtResource("1_hpwxt")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6oavx")
-animation = &"right"
+animation = &"left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_h7mbb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_x3nou")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(562, 0)
+position = Vector2(563, -98)
 limit_left = 0
 limit_right = 1150
 drag_vertical_enabled = true
 drag_left_margin = 1.0
 drag_right_margin = 1.0
+drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -111,17 +113,8 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.25, 3)
 shape = SubResource("RectangleShape2D_xes35")
 debug_color = Color(0.968627, 0.160784, 0.152941, 0.419608)
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(18, 0)
-target_position = Vector2(4, 0)
-collision_mask = 4
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-18, 0)
-target_position = Vector2(-4, 0)
-collision_mask = 4
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

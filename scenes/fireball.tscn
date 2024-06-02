@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cb1rlumdapl5j"]
+
+[node name="fireball" type="CharacterBody2D"]
+position = Vector2(0, -1)
