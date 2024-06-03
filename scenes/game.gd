@@ -15,7 +15,7 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color("#02041c")
 	sceneLimit = $Level/SceneLimit
 	player = $Level/AnimPlayer
-	music.play()
+	#music.play()
 	
 func updateLives():
 	if lives > 1:

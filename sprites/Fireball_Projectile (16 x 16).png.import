@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlh6kqs8eugm"
-path="res://.godot/imported/All_Fire_Bullet_Pixel_16x16_02.png-48ed06e225e5dc92521a73fb639bd5a4.ctex"
+uid="uid://br3tlbc3c5tq0"
+path="res://.godot/imported/Fireball_Projectile (16 x 16).png-b4e9c3c53f8bbdc049d71c2d1b4834c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/All_Fire_Bullet_Pixel_16x16_02.png"
-dest_files=["res://.godot/imported/All_Fire_Bullet_Pixel_16x16_02.png-48ed06e225e5dc92521a73fb639bd5a4.ctex"]
+source_file="res://sprites/Fireball_Projectile (16 x 16).png"
+dest_files=["res://.godot/imported/Fireball_Projectile (16 x 16).png-b4e9c3c53f8bbdc049d71c2d1b4834c0.ctex"]
 
 [params]
 

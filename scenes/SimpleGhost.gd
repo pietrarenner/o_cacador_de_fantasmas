@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var direction = Vector2.RIGHT
-var lives = 1
 @onready var edgeCheckLeft := $EdgeCheckLeft
 @onready var edgeCheckRight := $EdgeCheckRight
 @onready var sprite := $SimpleGhostSprite
@@ -15,3 +14,8 @@ func _physics_process(delta: float) -> void:
 		
 	velocity = direction * 50
 	move_and_slide()
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	queue_free()
+	if body.is_in_group("fireball"):
+		body.queue_free()

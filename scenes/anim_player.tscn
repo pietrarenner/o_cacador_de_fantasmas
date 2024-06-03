@@ -94,6 +94,8 @@ animation = &"left"
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_h7mbb")
 
+[node name="fireball_spawn_point" type="Marker2D" parent="."]
+
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_x3nou")
 volume_db = -16.0

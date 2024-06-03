@@ -70,7 +70,7 @@ text = "Collectibles : 0"
 [node name="Level" type="Node2D" parent="."]
 
 [node name="BossGhost" parent="Level" node_paths=PackedStringArray("target") instance=ExtResource("7_m6gqx")]
-position = Vector2(251.5, 244.5)
+position = Vector2(200.5, -426)
 target = NodePath("../AnimPlayer")
 
 [node name="SimpleGhost2" parent="Level" instance=ExtResource("5_4otq2")]
