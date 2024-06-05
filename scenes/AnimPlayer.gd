@@ -57,4 +57,4 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 func spawn_fireball():
 	var new_fireball = FIREBALL.instantiate()
 	add_sibling(new_fireball)
-	new_fireball.position = fireball_spawn_point.global_position
+	new_fireball.global_position = fireball_spawn_point.global_position

@@ -27,8 +27,8 @@ func _physics_process(delta: float) -> void:
 	if position.distance_to(target.position) < 1 and count>60:
 		get_tree().call_group("hud", "updateLives")
 		count = 0		
-	print(position)
-	print(target.position)
+	#print(position)
+	#print(target.position)
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print("entrou")

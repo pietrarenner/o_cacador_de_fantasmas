@@ -95,10 +95,20 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_h7mbb")
 
 [node name="fireball_spawn_point" type="Marker2D" parent="."]
+position = Vector2(-19, 4)
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_x3nou")
 volume_db = -16.0
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.25, 3)
+shape = SubResource("RectangleShape2D_xes35")
+debug_color = Color(0.968627, 0.160784, 0.152941, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(563, -98)
@@ -110,14 +120,5 @@ drag_right_margin = 1.0
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-0.25, 3)
-shape = SubResource("RectangleShape2D_xes35")
-debug_color = Color(0.968627, 0.160784, 0.152941, 0.419608)
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
