@@ -9,12 +9,12 @@ var count = 0
 @export var target : CharacterBody2D
 
 func animate_side():
-	if velocity.x > 0:
+	if position.distance_to(target.position) < 1:
+		sprite.stop()
+	elif velocity.x > 0:
 		sprite.play("right")
 	elif velocity.x < 0:
 		sprite.play("left")
-	else:
-		sprite.stop()
 
 func _physics_process(delta: float) -> void:
 	count+=1;
@@ -23,10 +23,9 @@ func _physics_process(delta: float) -> void:
 		is_following = true
 		animate_side()
 		move_and_slide()
-	# trava na pessoa e tira vidas -> arrumar sprite
 	if position.distance_to(target.position) < 1 and count>60:
 		get_tree().call_group("hud", "updateLives")
-		count = 0		
+		count = 0
 	#print(position)
 	#print(target.position)
 

@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = direction.x > 0
 		direction *= -1
 		
-	velocity = direction * 50
+	velocity = direction * 85
 	move_and_slide()
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:

@@ -45,7 +45,7 @@ script = ExtResource("1_4eqga")
 sprite_frames = SubResource("SpriteFrames_6c5j2")
 animation = &"fireball"
 autoplay = "fireball"
-frame_progress = 0.431399
+frame_progress = 0.751397
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhsxw3yaf5gj2"]
+[gd_scene load_steps=23 format=3 uid="uid://bhsxw3yaf5gj2"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_c1p7h"]
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="2_gvr13"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cphngaxhhyh0f" path="res://scenes/simple_ghost.tscn" id="5_4otq2"]
 [ext_resource type="Texture2D" uid="uid://bu2m4awja8egh" path="res://sprites/tileset1.png" id="7_hh77q"]
 [ext_resource type="PackedScene" uid="uid://duspyo64j8jh7" path="res://scenes/boss_ghost.tscn" id="7_m6gqx"]
+[ext_resource type="Texture2D" uid="uid://20dj785wlpg2" path="res://sprites/Opening (46x56).png" id="8_i2jnw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnivy"]
 texture = ExtResource("7_hh77q")
@@ -40,6 +41,91 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/3 = SubResource("TileSetAtlasSource_gnivy")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41rfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkfuh"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(184, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdpep"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf1g5"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih8k4"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp5uj"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol5ve"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u6hv"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rlks"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upo2v"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcwqi"]
+atlas = ExtResource("8_i2jnw")
+region = Rect2(184, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35t4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkfuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdpep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf1g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih8k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp5uj")
+}],
+"loop": true,
+"name": &"closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol5ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u6hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rlks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upo2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcwqi")
+}],
+"loop": true,
+"name": &"opening",
+"speed": 5.0
+}]
+
 [node name="Game" type="Node2D" groups=["hud"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_c1p7h")
@@ -52,18 +138,18 @@ volume_db = -8.0
 script = ExtResource("2_gvr13")
 
 [node name="LivesLabel" type="Label" parent="HUD"]
-offset_left = 39.0
-offset_top = 615.0
-offset_right = 148.0
-offset_bottom = 643.0
-theme_override_font_sizes/font_size = 20
+offset_left = 45.0
+offset_top = 11.0
+offset_right = 154.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 30
 text = "LIVES : 3"
 
 [node name="CollectiblesLabel" type="Label" parent="HUD"]
-offset_left = 980.0
-offset_top = 615.0
-offset_right = 1124.0
-offset_bottom = 643.0
+offset_left = 1769.0
+offset_top = 216.0
+offset_right = 1913.0
+offset_bottom = 244.0
 theme_override_font_sizes/font_size = 20
 text = "Collectibles : 0"
 
@@ -107,5 +193,14 @@ scale = Vector2(1, -1)
 [node name="AnimPlayer" parent="Level" instance=ExtResource("2_pr061")]
 position = Vector2(93, 259.5)
 metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level"]
+physics_material_override = SubResource("PhysicsMaterial_41rfq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/StaticBody2D"]
+modulate = Color(0.639216, 0.517647, 0.494118, 1)
+position = Vector2(66, -457.5)
+sprite_frames = SubResource("SpriteFrames_35t4l")
+animation = &"opening"
 
 [editable path="Level/AnimPlayer"]
