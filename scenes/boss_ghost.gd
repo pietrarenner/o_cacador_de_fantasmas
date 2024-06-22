@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Boss
 
 var direction = Vector2.RIGHT
 var speed = 100
@@ -31,10 +32,17 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print("entrou")
+	var knockback_tween := get_tree().create_tween()
+	sprite.modulate = Color(1,0,0,1)
 	if lives > 1:
 		lives-=1
-		print(lives)
+		knockback_tween.tween_property(sprite, "modulate", Color(1,1,1,1), 0.25)
 	else:
-		queue_free()
+		get_tree().call_group("door", "open")
+		knockback_tween.tween_property(sprite, "modulate", Color(1,0,0,1), 0.025)
+		knockback_tween.connect("finished", Callable(self, "_on_tween_finished"))
 	if body.is_in_group("fireball"):
 		body.queue_free()
+
+func _on_tween_finished() -> void:
+	queue_free()

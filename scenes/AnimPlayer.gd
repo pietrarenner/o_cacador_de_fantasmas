@@ -45,7 +45,6 @@ func move_side(delta):
 	move_and_slide()
 	
 func _physics_process(delta):
-	count+=1;
 	move_side(delta)
 	var left = Input.is_action_just_pressed("fire_left") 
 	var right = Input.is_action_just_pressed("fire_right") 
@@ -59,9 +58,14 @@ func _physics_process(delta):
 	while(isColliding and count > 50):
 		pisca()
 		count = 0;
+	if(isColliding):
+		count+=1;
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	isColliding = true
+	if body is Boss:
+		isColliding = true
+	else:
+		pisca()
 	
 func pisca():
 	var knockback_tween := get_tree().create_tween()
