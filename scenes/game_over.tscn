@@ -1,8 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgayrf6jw6ftr"]
+[gd_scene load_steps=7 format=3 uid="uid://cgayrf6jw6ftr"]
 
 [ext_resource type="Script" path="res://scenes/game_over.gd" id="1_cb3np"]
 [ext_resource type="FontFile" uid="uid://b1ksooqdxql42" path="res://fonts/SuperPixel-m2L8j.ttf" id="1_hn331"]
 [ext_resource type="AudioStream" uid="uid://bp8w2enwnd5g1" path="res://SFX/pain.ogg" id="1_ihhwu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m82"]
+bg_color = Color(0.403922, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_567mh"]
+bg_color = Color(0.187904, 2.36894e-07, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hofkn"]
+bg_color = Color(0.228978, 1.97035e-07, 1.20327e-08, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -44,3 +80,15 @@ theme_override_fonts/font = ExtResource("1_hn331")
 theme_override_font_sizes/font_size = 20
 text = "Press e to try again!"
 horizontal_alignment = 1
+
+[node name="ExitGame" type="Button" parent="."]
+layout_mode = 2
+offset_left = 497.0
+offset_top = 447.0
+offset_right = 666.0
+offset_bottom = 516.0
+theme_override_fonts/font = ExtResource("1_hn331")
+theme_override_styles/normal = SubResource("StyleBoxFlat_14m82")
+theme_override_styles/hover = SubResource("StyleBoxFlat_567mh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hofkn")
+text = "EXIT GAME"
