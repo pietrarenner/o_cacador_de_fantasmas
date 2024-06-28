@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 200.0
 var direction = 1
 var max_pos = Vector2.ZERO
 

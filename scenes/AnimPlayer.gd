@@ -49,9 +49,13 @@ func _physics_process(delta):
 	var left = Input.is_action_just_pressed("fire_left") 
 	var right = Input.is_action_just_pressed("fire_right") 
 	var up = Input.is_action_just_pressed("fire_up") 
-	if left and fireball_spawn_point.position.x < 0:
+	if left: #and fireball_spawn_point.position.x < 0:
+		sprite.play("left")
+		fireball_spawn_point.position.x = -abs(fireball_spawn_point.position.x)
 		spawn_fireball(-1)
-	elif right and fireball_spawn_point.position.x > 0:
+	elif right: #and fireball_spawn_point.position.x > 0:
+		sprite.play("right")
+		fireball_spawn_point.position.x = abs(fireball_spawn_point.position.x)
 		spawn_fireball(1)
 	elif up:
 		spawn_fireball(0)

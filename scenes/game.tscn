@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bhsxw3yaf5gj2"]
+[gd_scene load_steps=25 format=3 uid="uid://bhsxw3yaf5gj2"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_c1p7h"]
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="2_gvr13"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://duspyo64j8jh7" path="res://scenes/boss_ghost.tscn" id="7_m6gqx"]
 [ext_resource type="Texture2D" uid="uid://20dj785wlpg2" path="res://sprites/Opening (46x56).png" id="8_i2jnw"]
 [ext_resource type="Script" path="res://scenes/door.gd" id="8_igy4u"]
+
+[sub_resource type="TileSet" id="TileSet_f12vb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnivy"]
 texture = ExtResource("7_hh77q")
@@ -155,6 +157,10 @@ theme_override_font_sizes/font_size = 20
 text = "Collectibles : 0"
 
 [node name="Level" type="Node2D" parent="."]
+
+[node name="TileMap2" type="TileMap" parent="Level"]
+tile_set = SubResource("TileSet_f12vb")
+format = 2
 
 [node name="TileMap" type="TileMap" parent="Level"]
 position = Vector2(1, -285.5)
