@@ -33,7 +33,7 @@ size = Vector2(21, 28)
 size = Vector2(28, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwy1"]
-size = Vector2(21, 28)
+size = Vector2(28, 28)
 
 [node name="SimpleGhost" type="CharacterBody2D" groups=["simpleGhosts"]]
 scale = Vector2(-1, 1)
@@ -71,7 +71,7 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-3.5, -17)
+position = Vector2(-3, -17)
 shape = SubResource("RectangleShape2D_cwwy1")
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
