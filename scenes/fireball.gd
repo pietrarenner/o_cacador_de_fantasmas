@@ -13,6 +13,7 @@ func _physics_process(delta: float) -> void:
 		
 	var result = move_and_collide(velocity*delta)
 	if(result != null):
+		print(result.get_collider() is SimpleGhost)
 		queue_free()
 	
 	if(max_pos != Vector2.ZERO):
