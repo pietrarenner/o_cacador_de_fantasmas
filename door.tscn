@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://cs7tinp4ioy2r"]
+
+[ext_resource type="Script" path="res://scenes/door.gd" id="1_lyspc"]
+[ext_resource type="Texture2D" uid="uid://20dj785wlpg2" path="res://sprites/Opening (46x56).png" id="2_v5s5v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41rfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkfuh"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(184, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdpep"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf1g5"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih8k4"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp5uj"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol5ve"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u6hv"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rlks"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upo2v"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcwqi"]
+atlas = ExtResource("2_v5s5v")
+region = Rect2(184, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35t4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkfuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdpep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf1g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih8k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp5uj")
+}],
+"loop": true,
+"name": &"closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol5ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u6hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rlks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upo2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcwqi")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["door"]]
+physics_material_override = SubResource("PhysicsMaterial_41rfq")
+script = ExtResource("1_lyspc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.639216, 0.517647, 0.494118, 1)
+position = Vector2(66, -457.5)
+sprite_frames = SubResource("SpriteFrames_35t4l")
+animation = &"opening"
