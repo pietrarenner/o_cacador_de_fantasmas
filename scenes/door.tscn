@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cs7tinp4ioy2r"]
+[gd_scene load_steps=17 format=3 uid="uid://cs7tinp4ioy2r"]
 
 [ext_resource type="Script" path="res://scenes/door.gd" id="1_lyspc"]
 [ext_resource type="Texture2D" uid="uid://20dj785wlpg2" path="res://sprites/Opening (46x56).png" id="2_v5s5v"]
+[ext_resource type="AudioStream" uid="uid://chriy0pk60fo3" path="res://SFX/124573-Creaky_wood_door_creak_with_a_stutter_2.wav" id="3_ve3ld"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41rfq"]
 
@@ -96,6 +97,9 @@ collision_layer = 128
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_41rfq")
 script = ExtResource("1_lyspc")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ve3ld")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.639216, 0.517647, 0.494118, 1)

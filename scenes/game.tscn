@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhsxw3yaf5gj2"]
+[gd_scene load_steps=12 format=3 uid="uid://bhsxw3yaf5gj2"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_c1p7h"]
+[ext_resource type="AudioStream" uid="uid://begbryt1i3wb8" path="res://SFX/403828-Ghost_Voice_-Creepy_Reversed_Female_Whisper_Noise_01_002263_.wav" id="2_devba"]
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="2_gvr13"]
 [ext_resource type="PackedScene" uid="uid://cecub0woerqpc" path="res://scenes/anim_player.tscn" id="2_pr061"]
 [ext_resource type="AudioStream" uid="uid://crjat5b2nmm24" path="res://SFX/backgroundsound.mp3" id="2_qvhxs"]
@@ -41,13 +42,17 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/3 = SubResource("TileSetAtlasSource_gnivy")
 
-[node name="Game" type="Node2D" groups=["door", "hud"]]
+[node name="Game" type="Node2D" groups=["door", "dyingSounds", "hud"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_c1p7h")
 
+[node name="GhostDyingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_devba")
+pitch_scale = 2.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qvhxs")
-volume_db = -8.0
+volume_db = -30.0
 
 [node name="HUD" type="CanvasLayer" parent="." groups=["hud"]]
 script = ExtResource("2_gvr13")
@@ -60,13 +65,13 @@ offset_bottom = 39.0
 theme_override_font_sizes/font_size = 30
 text = "LIVES : 3"
 
-[node name="CollectiblesLabel" type="Label" parent="HUD"]
-offset_left = 1769.0
-offset_top = 216.0
-offset_right = 1913.0
-offset_bottom = 244.0
-theme_override_font_sizes/font_size = 20
-text = "Collectibles : 0"
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_left = 967.0
+offset_top = 11.0
+offset_right = 1111.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 30
+text = "SCORE : 0"
 
 [node name="Level" type="Node2D" parent="."]
 

@@ -1,10 +1,7 @@
 extends Control
 
-@onready var diedsound = $DiedSound
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	diedsound.play()
 	$ExitGame.connect("pressed", Callable(self, "_on_quit_button_pressed"))
 	
 func _physics_process(delta: float) -> void:

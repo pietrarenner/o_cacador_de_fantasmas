@@ -1,20 +1,14 @@
 extends CanvasLayer
 
 @onready var livesLabel : Label = $LivesLabel
-@onready var collectiblesLabel : Label = $CollectiblesLabel
+@onready var scoreLabel : Label = $ScoreLabel
 
 func _ready() -> void:
 	setLives(5)
-	setCollectibles(0)
-
-func updateLives():
-	print("updateLives do HUD!")
-	
-func updateCollectibles():
-	print("updateCollectibles do HUD!")
+	setScore(0)
 
 func setLives(lives: int):
-	livesLabel.text = "Lives : " + str(lives)
+	livesLabel.text = "LIVES : " + str(lives)
 	
-func setCollectibles(collectibles: int):
-	collectiblesLabel.text = "Collectibles : " +str(collectibles)
+func setScore(score: int):
+	scoreLabel.text = "SCORE : " +str(score)

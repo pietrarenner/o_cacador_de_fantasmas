@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game_over.gd" id="1_cb3np"]
 [ext_resource type="FontFile" uid="uid://b1ksooqdxql42" path="res://fonts/SuperPixel-m2L8j.ttf" id="1_hn331"]
-[ext_resource type="AudioStream" uid="uid://bp8w2enwnd5g1" path="res://SFX/pain.ogg" id="1_ihhwu"]
+[ext_resource type="AudioStream" uid="uid://c1r6bgsxholaw" path="res://SFX/089684_retro-you-lose-sfx-85557.mp3" id="2_kgjvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m82"]
 bg_color = Color(0.403922, 0, 0, 1)
@@ -50,8 +50,7 @@ grow_vertical = 2
 script = ExtResource("1_cb3np")
 
 [node name="DiedSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_ihhwu")
-volume_db = -10.0
+stream = ExtResource("2_kgjvb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
