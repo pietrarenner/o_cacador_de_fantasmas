@@ -1,5 +1,6 @@
 extends Node2D
 
+var isDoorOpen := false
 var lives := 5
 var count := 0
 var collectibles := 0
@@ -9,12 +10,13 @@ var player : CharacterBody2D
 var sceneLimit : Marker2D
 @onready var hud : CanvasLayer = $HUD 
 @onready var music := $Music
-#var currentScene = null
+var currentScene = null
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color("#02041c")
 	sceneLimit = $Level/SceneLimit
 	player = $Level/AnimPlayer
+	currentScene = $Level
 	#music.play()
 	
 func updateLives():
@@ -38,13 +40,14 @@ func updateCollectibles():
 	
 	# para ir para a próxima fase
 
-#func goto_scene(path: String):
-	#$Level.free()	
-	#var res := ResourceLoader.load(path)
-	#currentScene = res.instantiate()	
-	##player = get_child(0).get_node("AnimPlayer")
-	#add_child(currentScene)
-	#sceneLimit = null
+func goto_scene(path: String):	
+	currentScene.free()
+	var res := ResourceLoader.load(path)
+	currentScene = res.instantiate()	
+	#player = get_child(0).get_node("AnimPlayer")
+	add_child(currentScene)
+	sceneLimit = null
+	isDoorOpen = false
 
 func _physics_process(delta: float) -> void:
 	if sceneLimit == null:
@@ -52,3 +55,15 @@ func _physics_process(delta: float) -> void:
 		sceneLimit = $Level/SceneLimit		
 		#print("sceneLimit: ", sceneLimit)
 		#print("player: ", player)
+		
+func nextPhase():
+	if isDoorOpen:
+		if currentScene.name == "Level":
+			#currentScene.free()
+			call_deferred("goto_scene", "res://levels/level_2.tscn")
+		elif currentScene.name == "Level2":
+			#currentScene.free()
+			call_deferred("goto_scene", "res://levels/level_3.tscn")
+
+func setOpenDoor():
+	isDoorOpen = true

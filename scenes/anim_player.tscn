@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cecub0woerqpc"]
 
 [ext_resource type="Texture2D" uid="uid://dbx67oeejd1jf" path="res://sprites/bob_right.png" id="1_ef6pk"]
-[ext_resource type="Script" path="res://AnimPlayer.gd" id="1_hpwxt"]
+[ext_resource type="Script" path="res://scenes/AnimPlayer.gd" id="1_hpwxt"]
 [ext_resource type="Texture2D" uid="uid://b1lxqofrwv3sf" path="res://sprites/bob_left.png" id="2_ey5ht"]
 [ext_resource type="AudioStream" uid="uid://djlns1f25i4s8" path="res://SFX/jump1.ogg" id="3_x3nou"]
 
@@ -82,7 +82,7 @@ size = Vector2(26, 37)
 
 [node name="AnimPlayer" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 137
 script = ExtResource("1_hpwxt")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]

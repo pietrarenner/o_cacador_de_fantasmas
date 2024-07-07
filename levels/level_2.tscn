@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bu2m4awja8egh" path="res://sprites/tileset1.png" id="1_blre1"]
 [ext_resource type="PackedScene" uid="uid://cecub0woerqpc" path="res://scenes/anim_player.tscn" id="2_pu6do"]
 [ext_resource type="PackedScene" uid="uid://duspyo64j8jh7" path="res://scenes/boss_ghost.tscn" id="3_x2km5"]
-[ext_resource type="PackedScene" uid="uid://cs7tinp4ioy2r" path="res://door.tscn" id="4_2rdk3"]
+[ext_resource type="PackedScene" uid="uid://cs7tinp4ioy2r" path="res://scenes/door.tscn" id="4_2rdk3"]
 [ext_resource type="PackedScene" uid="uid://cphngaxhhyh0f" path="res://scenes/simple_ghost.tscn" id="4_q4pxr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1sbu"]
@@ -39,7 +39,9 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_d1sbu")
 
 [node name="Level2" type="Node2D"]
-scale = Vector2(2, 2)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_2rdk3")]
+position = Vector2(535, -688)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 28)
@@ -79,9 +81,6 @@ position = Vector2(28.5, -519)
 
 [node name="SimpleGhost9" parent="." instance=ExtResource("4_q4pxr")]
 position = Vector2(365.5, -632)
-
-[node name="StaticBody2D" parent="." instance=ExtResource("4_2rdk3")]
-position = Vector2(465.5, -230)
 
 [node name="BossGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_x2km5")]
 position = Vector2(453.5, -652)
