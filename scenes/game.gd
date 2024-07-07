@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 func nextPhase():
 	if isDoorOpen:
 		if currentScene.name == "Level":
-			call_deferred("goto_scene", "res://levels/level_3.tscn")
+			call_deferred("goto_scene", "res://levels/level_2.tscn")
 		elif currentScene.name == "Level2":
 			call_deferred("goto_scene", "res://levels/level_3.tscn")
 		elif currentScene.name == "Level3":
