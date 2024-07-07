@@ -76,7 +76,7 @@ text = "SCORE : 0"
 [node name="Level" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Level" instance=ExtResource("5_7timg")]
-position = Vector2(51, -458)
+position = Vector2(69, -456.5)
 
 [node name="TileMap" type="TileMap" parent="Level"]
 position = Vector2(1, -285.5)

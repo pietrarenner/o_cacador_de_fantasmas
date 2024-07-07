@@ -42,7 +42,7 @@ sources/0 = SubResource("TileSetAtlasSource_d1sbu")
 position = Vector2(0, -2)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_2rdk3")]
-position = Vector2(535, -688)
+position = Vector2(506, -688)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 28)
