@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://drh0x1sj1730n"]
+[gd_scene load_steps=8 format=3 uid="uid://drh0x1sj1730n"]
 
 [ext_resource type="Texture2D" uid="uid://bu2m4awja8egh" path="res://sprites/tileset1.png" id="1_qdwvw"]
 [ext_resource type="PackedScene" uid="uid://cecub0woerqpc" path="res://scenes/anim_player.tscn" id="2_a1ilg"]
 [ext_resource type="PackedScene" uid="uid://cphngaxhhyh0f" path="res://scenes/simple_ghost.tscn" id="3_n6k43"]
 [ext_resource type="PackedScene" uid="uid://cs7tinp4ioy2r" path="res://door.tscn" id="4_ymi05"]
+[ext_resource type="PackedScene" uid="uid://duspyo64j8jh7" path="res://scenes/boss_ghost.tscn" id="5_dbmkx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5cjc8"]
 texture = ExtResource("1_qdwvw")
@@ -72,5 +73,9 @@ position = Vector2(210, -219)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_ymi05")]
 position = Vector2(-17.5, 69)
+
+[node name="BossGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_dbmkx")]
+position = Vector2(115, -352)
+target = NodePath("../AnimPlayer")
 
 [editable path="AnimPlayer"]
